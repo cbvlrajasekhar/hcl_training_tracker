@@ -8,6 +8,6 @@ import in.hcl.employee_management.domain.Employee;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 	
-          Employee findByIdentifier(String identifier);
+          Employee findByEmployeeIdentifier(String employeeIdentifier);
           Iterable<Employee> findAll();
 }
