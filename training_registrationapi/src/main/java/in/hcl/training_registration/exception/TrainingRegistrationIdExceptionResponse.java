@@ -8,6 +8,7 @@ public class TrainingRegistrationIdExceptionResponse {
 		super();
 		this.trainingRegistrationnId = trainingRegistrationnId;
 	}
+	
 
 	public String getTrainingRegistrationnId() {
 		return trainingRegistrationnId;

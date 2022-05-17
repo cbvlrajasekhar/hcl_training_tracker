@@ -119,5 +119,6 @@ public class TrainingRegistration {
 		return "TrainingRegistration [id=" + id + ", employeeId=" + employeeId + ", scheduleId=" + scheduleId
 				+ ", schedule=" + schedule + ", employee=" + employee + ", createdAt=" + createdAt + ", updatedAt="
 				+ updatedAt + "]";
+
 	}
 }

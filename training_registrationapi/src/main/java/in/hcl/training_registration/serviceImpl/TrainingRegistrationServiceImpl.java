@@ -46,5 +46,4 @@ public class TrainingRegistrationServiceImpl implements TrainingRegistrationServ
 		}
 		trainingRegistrationRepository.deleteByTrainingRegistrationId(trainingRegistrationId);
 	}
-
 }

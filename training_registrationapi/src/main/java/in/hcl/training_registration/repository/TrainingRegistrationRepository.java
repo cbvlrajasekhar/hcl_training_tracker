@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import in.hcl.training_registration.modal.TrainingRegistration;
 
+
 @Repository
 public interface TrainingRegistrationRepository extends JpaRepository<TrainingRegistration, Long>{
 	

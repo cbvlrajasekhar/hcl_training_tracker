@@ -13,5 +13,6 @@ public class CustomResponseEntityExceptionHandler {
 	public final ResponseEntity<Object> handlerTrainingRegistrationIdException(TrainingRegistrationIdException ex, WebRequest request){
 		TrainingRegistrationIdExceptionResponse exceptionResponse = new TrainingRegistrationIdExceptionResponse(ex.getMessage());
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+		
 	}
 }

@@ -11,6 +11,7 @@ public class TrainingRegistrationApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TrainingRegistrationApiApplication.class, args);
+		
 	}
 
 	@Bean

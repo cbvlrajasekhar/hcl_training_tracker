@@ -60,4 +60,5 @@ public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long trainingRegi
 	return new ResponseEntity<TrainingRegistration >(trainingRegistration ,HttpStatus.OK);
 
 	}
+
 }

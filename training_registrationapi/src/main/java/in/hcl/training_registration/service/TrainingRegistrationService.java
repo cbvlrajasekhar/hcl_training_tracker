@@ -13,4 +13,5 @@ public interface TrainingRegistrationService {
 	public List<TrainingRegistration> findAllTrainingRegistration();
 	
 	public void deleteByTrainingRegistrationId(Long TrainingRegistration);
+	
 }

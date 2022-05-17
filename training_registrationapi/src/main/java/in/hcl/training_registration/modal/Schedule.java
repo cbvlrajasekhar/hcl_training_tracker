@@ -60,5 +60,4 @@ public class Schedule {
 	public void setStatus(Date status) {
 		this.status = status;
 	}
-	
 }
