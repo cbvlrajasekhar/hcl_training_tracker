@@ -25,7 +25,7 @@ public class Employee {
 	@NotBlank(message="Employeeidentifier is required")
 	@Size(min=3,max=7, message="please use 3 to 7 characters only")
 	@Column(updatable=false,unique=true)
-	private String identifier;
+	private String employeeIdentifier;
 	@NotBlank(message="employement type is required ,whether the employee is onrole or offrole")
 	private String type;
 	@NotBlank(message="employee designation is required")
@@ -33,7 +33,8 @@ public class Employee {
 	private Double salary;
 	@NotBlank(message="Email id of the employee is required")
 	private String email;
-	//@NotBlank(message="mobile number is required")//
+	@NotBlank(message="mobile number is required")
+	@Size(min=10,max=16, message="please use 10 to 16 characters only")
 	private String mobileNo;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date joined_date;
@@ -64,12 +65,12 @@ public class Employee {
 		this.name = name;
 	}
 
-	public String getIdentifier() {
-		return identifier;
+	public String getEmployeeIdentifier() {
+		return employeeIdentifier;
 	}
 
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
+	public void setEmployeeIdentifier(String employeeIdentifier) {
+		this.employeeIdentifier = employeeIdentifier;
 	}
 
 	public String getType() {
@@ -144,13 +145,15 @@ public class Employee {
 		this.updated_at = updated_at;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", identifier=" + identifier + ", type=" + type
+		return "Employee [id=" + id + ", name=" + name + ", employeeIdentifier=" + employeeIdentifier + ", type=" + type
 				+ ", designation=" + designation + ", salary=" + salary + ", email=" + email + ", mobileNo=" + mobileNo
 				+ ", joined_date=" + joined_date + ", relived_date=" + relived_date + ", created_at=" + created_at
 				+ ", updated_at=" + updated_at + "]";
 	}
+
 	@PrePersist
 	public void onCreate() {
 		this.created_at=new Date();

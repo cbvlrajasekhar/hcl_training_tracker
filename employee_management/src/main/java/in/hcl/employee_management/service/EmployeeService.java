@@ -5,9 +5,9 @@ import in.hcl.employee_management.domain.Employee;
 public interface EmployeeService {
 	
 	public Employee saveorUpdate(Employee employee);
-	public Employee findEmployeeByIdentifier(String employeeId);
+	public Employee findEmployeeByEmployeeIdentifier(String employeeId);
 	public Iterable<Employee> findAllEmployee();
 	
-	public void deleteEmployeeByIdentifier(String employeeId);
+	public void deleteEmployeeByEmployeeIdentifier(String employeeId);
 
 }
