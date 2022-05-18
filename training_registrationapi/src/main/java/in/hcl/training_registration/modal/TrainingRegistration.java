@@ -12,7 +12,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
@@ -20,7 +19,7 @@ public class TrainingRegistration {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long trainigRegistrationId;
+	private Long trainingRegistrationId;
 	@NotBlank(message="Employee id is reqiured")
 	private Long employeeId;
 	@NotBlank(message="Schedule id is reqiured")
@@ -46,12 +45,12 @@ public class TrainingRegistration {
 		this.scheduleId = scheduleId;
 	}
 
-	public Long getTrainigRegistrationId() {
-		return trainigRegistrationId;
+	public Long getTrainingRegistrationId() {
+		return trainingRegistrationId;
 	}
 
-	public void setTrainigRegistrationId(Long trainigRegistrationId) {
-		this.trainigRegistrationId = trainigRegistrationId;
+	public void setTrainingRegistrationId(Long trainingRegistrationId) {
+		this.trainingRegistrationId = trainingRegistrationId;
 	}
 
 	public Long getEmployeeId() {
@@ -114,7 +113,7 @@ public class TrainingRegistration {
 
 	@Override
 	public String toString() {
-		return "TrainingRegistration [trainigRegistrationId=" + trainigRegistrationId + ", employeeId=" + employeeId
+		return "TrainingRegistration [trainingRegistrationId=" + trainingRegistrationId + ", employeeId=" + employeeId
 				+ ", scheduleId=" + scheduleId + ", schedule=" + schedule + ", employee=" + employee + ", createdAt="
 				+ createdAt + ", updatedAt=" + updatedAt + "]";
 	}
