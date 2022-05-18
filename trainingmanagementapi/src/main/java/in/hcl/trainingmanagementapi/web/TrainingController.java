@@ -1,6 +1,7 @@
 package in.hcl.trainingmanagementapi.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -47,7 +48,7 @@ public  ResponseEntity<?>getTrainingByModulename(@PathVariable String modulename
 	return new ResponseEntity<Training>(training,HttpStatus.OK);
 	
 }
-
+	
 	@GetMapping("/all")
 	public Iterable<Training>getAllTrainings(){
 		return trainingService.findAllTraining();
@@ -58,4 +59,5 @@ public  ResponseEntity<?>getTrainingByModulename(@PathVariable String modulename
 		trainingService.deleteTrainingByModulename(modulename);
 		return new ResponseEntity<String>("Training with module name:"+modulename.toUpperCase()+"Deleted successfully!",HttpStatus.OK);
 	}
+	
 }
