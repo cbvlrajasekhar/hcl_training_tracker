@@ -50,10 +50,10 @@ public ResponseEntity<?> deleteSchedule(@PathVariable Long trainingRegistrationI
 	return new ResponseEntity<String>("Schedule with Trining Id: "+trainingRegistrationId+" Deleted Succesfully!", HttpStatus.OK);
 }
 
-@GetMapping("/{trainingRegistrationId}")
-public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long trainingRegistrationId){
-	TrainingRegistration trainingRegistration = trainingRegistrationService.findByTrainingRegistrationId(trainingRegistrationId);
-	List<Schedule> newSchedule = restTemplate.getForObject("http://scheduleapi/" + trainingRegistration.getScheduleId(), List.class);
+@GetMapping("/{scheduleId}/{employeeId}")
+public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long scheduleId, @PathVariable Long employeeId){
+	TrainingRegistration trainingRegistration = new TrainingRegistration();
+	List<Schedule> newSchedule = restTemplate.getForObject("http://schedule-service/api/schedules" +scheduleId, List.class);
 	List<Employee> newEmplyee = restTemplate.getForObject("http://employeeapi/" + trainingRegistration.getScheduleId(), List.class);
 	trainingRegistration.setEmployee(newEmplyee);
 	trainingRegistration.setSchedule(newSchedule);

@@ -20,7 +20,7 @@ public class TrainingRegistration {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long trainigRegistrationId;
 	@NotBlank(message="Employee id is reqiured")
 	private Long employeeId;
 	@NotBlank(message="Schedule id is reqiured")
@@ -46,14 +46,12 @@ public class TrainingRegistration {
 		this.scheduleId = scheduleId;
 	}
 
-
-
-	public Long getId() {
-		return id;
+	public Long getTrainigRegistrationId() {
+		return trainigRegistrationId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setTrainigRegistrationId(Long trainigRegistrationId) {
+		this.trainigRegistrationId = trainigRegistrationId;
 	}
 
 	public Long getEmployeeId() {
@@ -116,9 +114,9 @@ public class TrainingRegistration {
 
 	@Override
 	public String toString() {
-		return "TrainingRegistration [id=" + id + ", employeeId=" + employeeId + ", scheduleId=" + scheduleId
-				+ ", schedule=" + schedule + ", employee=" + employee + ", createdAt=" + createdAt + ", updatedAt="
-				+ updatedAt + "]";
-
+		return "TrainingRegistration [trainigRegistrationId=" + trainigRegistrationId + ", employeeId=" + employeeId
+				+ ", scheduleId=" + scheduleId + ", schedule=" + schedule + ", employee=" + employee + ", createdAt="
+				+ createdAt + ", updatedAt=" + updatedAt + "]";
 	}
+
 }
