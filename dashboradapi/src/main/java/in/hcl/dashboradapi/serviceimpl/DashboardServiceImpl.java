@@ -1,11 +1,12 @@
 package in.hcl.dashboradapi.serviceimpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.hcl.dashboradapi.service.DashboardService;
 @Service
 public class DashboardServiceImpl implements DashboardService {
-
+  
 	@Override
 	public Long findTotalTrainings(Long userId, Long trainingID) {
 		//select count(*) from training where id=? and role=?
