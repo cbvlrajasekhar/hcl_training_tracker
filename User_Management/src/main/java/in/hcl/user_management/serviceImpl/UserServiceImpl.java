@@ -1,4 +1,4 @@
-package in.hcl.user_management.serviceImpl;
+ package in.hcl.user_management.serviceImpl;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Status updateProfile(User u) {
 		String sql = "update user set username = '" + u.getUsername() + "', address = '" + u.getAddress()
-				+ "', mobile_no = '" + u.getMobileNo() + "', password = '" + u.getPassword() + "', update_at = now() where id = '"
+				+ "', userrole = '" + u.getUserrole()+ "', mobile_no = '" + u.getMobileNo() + "', password = '" + u.getPassword() + "', update_at = now() where id = '"
 				+ u.getId() + "'";
 		jdbcTemplate.setDataSource(dataSource);
 		System.out.println("Profile updated successfully");
