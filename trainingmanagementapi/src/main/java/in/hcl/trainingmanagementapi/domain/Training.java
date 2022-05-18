@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -21,12 +22,14 @@ public class Training {
 	@Column(updatable=false,unique=true)
 	private String  modulename;
 	private String type;
+	@NotBlank(message="price is required")
 	private double price;
 	private double percentage_scored;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date scheduled_date;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date completed_by;
+	@NotBlank(message="trainer name is required")
 	private String trainer_name;
 	private double training_rating;
 	
