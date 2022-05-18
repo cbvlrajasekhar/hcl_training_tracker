@@ -50,15 +50,14 @@ public ResponseEntity<?> getScheduleByTrainingId(){
 	return new ResponseEntity<List<TrainingRegistration>>(trainingRegistrationList ,HttpStatus.OK);
 	}
 
-@GetMapping("/{scheduleId}/{employeeId}")
-public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long scheduleId, @PathVariable Long employeeId){
-	TrainingRegistration trainingRegistration = new TrainingRegistration();
-	List<Schedule> newSchedule = restTemplate.getForObject("http://schedule-service/api/schedules" +scheduleId, List.class);
-	List<Employee> newEmplyee = restTemplate.getForObject("http://employee-service//api/employee" +employeeId, List.class);
+@GetMapping("/{trainingRegistrationId}")
+public ResponseEntity<?> getScheduleByTrainingRegistrationId(@PathVariable Long trainingRegistrationId){
+	TrainingRegistration trainingRegistration = trainingRegistrationService.findByTrainingRegistrationId(trainingRegistrationId);
+	List<Schedule> newSchedule = restTemplate.getForObject("http://schedule-service/api/schedules" +trainingRegistration.getScheduleId(), List.class);
+	List<Employee> newEmplyee = restTemplate.getForObject("http://employee-service//api/employee" +trainingRegistration.getEmployeeId(), List.class);
 	trainingRegistration.setEmployee(newEmplyee);
 	trainingRegistration.setSchedule(newSchedule);
 	return new ResponseEntity<TrainingRegistration >(trainingRegistration ,HttpStatus.OK);
-
 	}
 
 @DeleteMapping("/{trainingRegistrationId}")

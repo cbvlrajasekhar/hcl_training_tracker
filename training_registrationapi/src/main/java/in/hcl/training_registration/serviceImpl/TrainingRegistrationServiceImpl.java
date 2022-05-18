@@ -18,9 +18,9 @@ public class TrainingRegistrationServiceImpl implements TrainingRegistrationServ
 
 	@Override
 	public TrainingRegistration saveOrUpdate(TrainingRegistration trainingRegistration) {
-		TrainingRegistration newTrainingRegistration = trainingRegistrationRepository.findByTrainingRegistrationId(trainingRegistration.getTrainigRegistrationId());
+		TrainingRegistration newTrainingRegistration = trainingRegistrationRepository.findByTrainingRegistrationId(trainingRegistration.getTrainingRegistrationId());
 		if(newTrainingRegistration != null) {
-			throw new TrainingRegistrationIdException("Training Registration with TrainingRegistration Id: "+trainingRegistration.getTrainigRegistrationId()+ " Already Exist");
+			throw new TrainingRegistrationIdException("Training Registration with TrainingRegistration Id: "+trainingRegistration.getTrainingRegistrationId()+ " Already Exist");
 		}
 		return trainingRegistrationRepository.save(trainingRegistration);
 	}
