@@ -12,7 +12,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity

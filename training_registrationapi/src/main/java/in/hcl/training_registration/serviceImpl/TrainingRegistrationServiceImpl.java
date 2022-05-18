@@ -3,12 +3,14 @@ package in.hcl.training_registration.serviceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import in.hcl.training_registration.exception.TrainingRegistrationIdException;
 import in.hcl.training_registration.modal.TrainingRegistration;
 import in.hcl.training_registration.repository.TrainingRegistrationRepository;
 import in.hcl.training_registration.service.TrainingRegistrationService;
 
+@Service
 public class TrainingRegistrationServiceImpl implements TrainingRegistrationService {
 	
 	@Autowired
@@ -16,9 +18,9 @@ public class TrainingRegistrationServiceImpl implements TrainingRegistrationServ
 
 	@Override
 	public TrainingRegistration saveOrUpdate(TrainingRegistration trainingRegistration) {
-		TrainingRegistration newTrainingRegistration = trainingRegistrationRepository.findByTrainingRegistrationId(trainingRegistration.getId());
+		TrainingRegistration newTrainingRegistration = trainingRegistrationRepository.findByTrainingRegistrationId(trainingRegistration.getTrainigRegistrationId());
 		if(newTrainingRegistration != null) {
-			throw new TrainingRegistrationIdException("Training Registration with TrainingRegistration Id: "+trainingRegistration.getId()+ " Already Exist");
+			throw new TrainingRegistrationIdException("Training Registration with TrainingRegistration Id: "+trainingRegistration.getTrainigRegistrationId()+ " Already Exist");
 		}
 		return trainingRegistrationRepository.save(trainingRegistration);
 	}

@@ -36,29 +36,43 @@ private MapValidationErrorService mapValidationErrorService;
 @Autowired
 private RestTemplate restTemplate;
 
-@PostMapping("")
-public ResponseEntity<?> createNewTrainingRegistration(@Valid @RequestBody TrainingRegistration trainingRegistration, BindingResult result){
-	ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
-	if(errorMap!=null) return errorMap;
-	TrainingRegistration savedSchedule = trainingRegistrationService.saveOrUpdate(trainingRegistration);
-	return new ResponseEntity<TrainingRegistration>(savedSchedule,HttpStatus.CREATED);
-}
+@GetMapping("/find/{trainingId}")
+public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long trainingRegistrationId){
+	TrainingRegistration trainingRegistration = new TrainingRegistration();
+	trainingRegistration = trainingRegistrationService.findByTrainingRegistrationId(trainingRegistrationId);
+	return new ResponseEntity<TrainingRegistration>(trainingRegistration ,HttpStatus.OK);
 
-@DeleteMapping("/{trainingRegistrationId}")
-public ResponseEntity<?> deleteSchedule(@PathVariable Long trainingRegistrationId){
-	trainingRegistrationService.deleteByTrainingRegistrationId(trainingRegistrationId);
-	return new ResponseEntity<String>("Schedule with Trining Id: "+trainingRegistrationId+" Deleted Succesfully!", HttpStatus.OK);
-}
+	}
+
+@GetMapping("/findall")
+public ResponseEntity<?> getScheduleByTrainingId(){
+	List<TrainingRegistration> trainingRegistrationList = trainingRegistrationService.findAllTrainingRegistration();
+	return new ResponseEntity<List<TrainingRegistration>>(trainingRegistrationList ,HttpStatus.OK);
+	}
 
 @GetMapping("/{scheduleId}/{employeeId}")
 public ResponseEntity<?> getScheduleByTrainingId(@PathVariable Long scheduleId, @PathVariable Long employeeId){
 	TrainingRegistration trainingRegistration = new TrainingRegistration();
 	List<Schedule> newSchedule = restTemplate.getForObject("http://schedule-service/api/schedules" +scheduleId, List.class);
-	List<Employee> newEmplyee = restTemplate.getForObject("http://employeeapi/" + trainingRegistration.getScheduleId(), List.class);
+	List<Employee> newEmplyee = restTemplate.getForObject("http://employee-service//api/employee" +employeeId, List.class);
 	trainingRegistration.setEmployee(newEmplyee);
 	trainingRegistration.setSchedule(newSchedule);
 	return new ResponseEntity<TrainingRegistration >(trainingRegistration ,HttpStatus.OK);
 
+	}
+
+@DeleteMapping("/{trainingRegistrationId}")
+public ResponseEntity<?> deleteSchedule(@PathVariable Long trainingRegistrationId){
+	trainingRegistrationService.deleteByTrainingRegistrationId(trainingRegistrationId);
+	return new ResponseEntity<String>("Schedule with Trining Id: "+trainingRegistrationId+" Deleted Succesfully!", HttpStatus.OK);
+	}
+
+@PostMapping("/create")
+public ResponseEntity<?> createNewTrainingRegistration(@Valid @RequestBody TrainingRegistration trainingRegistration, BindingResult result){
+	ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
+	if(errorMap!=null) return errorMap;
+	TrainingRegistration savedSchedule = trainingRegistrationService.saveOrUpdate(trainingRegistration);
+	return new ResponseEntity<TrainingRegistration>(savedSchedule,HttpStatus.CREATED);
 	}
 
 }
