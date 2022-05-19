@@ -20,9 +20,9 @@ public class TrainingRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long trainingRegistrationId;
-	@NotBlank(message="Employee id is reqiured")
+	//@NotBlank(message="Employee id is reqiured")
 	private Long employeeId;
-	@NotBlank(message="Schedule id is reqiured")
+	//@NotBlank(message="Schedule id is reqiured")
 	private Long scheduleId;
 	@JsonInclude
 	@Transient
