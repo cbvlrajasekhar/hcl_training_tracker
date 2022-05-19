@@ -1,7 +1,8 @@
-package in.hcl.trainingmanagementapi.domain;
+package in.hcl.dashboradapi.domain;
 
 import java.util.Date;
 
+<<<<<<< HEAD:trainingmanagementapi/src/main/java/in/hcl/trainingmanagementapi/domain/Training.java
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,23 +12,25 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+=======
+>>>>>>> 0191eb98ebab8c496cef9fa1e47e2168e5e26432:dashboradapi/src/main/java/in/hcl/dashboradapi/domain/Training.java
 
 
-@Entity
+
+
+
 public class Training {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	private Long id;
-	@NotBlank(message="modulename is required")
-	@Column(updatable=false,unique=true)
+	
 	private String  modulename;
 	private String type;
 	@NotBlank(message="price is required")
 	private double price;
 	private double percentage_scored;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	
 	private Date scheduled_date;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	
 	private Date completed_by;
 	@NotBlank(message="trainer name is required")
 	private String trainer_name;
